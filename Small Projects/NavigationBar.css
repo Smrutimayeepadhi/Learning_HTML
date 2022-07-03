@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@200&display=swap');
+*
+{
+    margin:0;
+    padding:0;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+:root
+{
+    --color:rgb(33, 21, 21);
+}
+body
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color);
+    min-height: 100vh; 
+}
+.navigation
+{
+    width:400px;
+    height:70px;
+    background-color: #f8fafa;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+.navigation ul
+{
+    display: flex;
+    width: 350px;
+   
+}
+.navigation ul li
+{
+
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    z-index: 1;
+}
+.navigation ul li a
+{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    text-align:center;
+    font-weight: 500;  
+}
+.navigation ul li a .icon
+{
+    position:relative;
+    
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: .3s;
+    color: var(--color)
+} 
+.navigation ul li:active a .icon
+{
+    transform: translateY(-35px);
+}
+.navigation ul li a .text
+{
+    position: absolute;
+    color: var(--color);
+    font-weight: 700;
+    font-size: .75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    transform: translateY(20px);
+    opacity: 0;
+}
+.navigation ul li:active a .text
+{
+    opacity: 1;
+    transform: translateY(20px);
+}
+.indicator
+{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: chartreuse;
+    top: -50%;
+    border-radius: 50%;
+    border: 6px solid var(--color); 
+    transition: 0.5s; 
+}
+.indicator::before
+{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    left: -22px;
+    top: 50%;
+    border-top-right-radius: 20px;
+    box-shadow: 0px -10px 0 0 var(--color);
+    
+}
+.indicator::after
+{
+    content:'';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    right: -22px;
+    top: 50%;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 var(--color);
+}
+.navigation ul li:nth-child(1).active ~ .indicator
+{
+    transform: translateX(calc(70px * 0));
+}
+.navigation ul li:nth-child(2).active ~ .indicator
+{
+    transform: translateX(calc(70px * 1));
+}
+.navigation ul li:nth-child(3).active ~ .indicator
+{
+    transform: translateX(calc(70px * 2));
+}
+.navigation ul li:nth-child(4).active ~ .indicator
+{
+    transform: translateX(calc(70px * 3));
+}
+.navigation ul li:nth-child(5).active ~ .indicator
+{
+    transform: translateX(calc(70px * 4));
+}
